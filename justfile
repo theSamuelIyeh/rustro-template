@@ -15,7 +15,7 @@ preview external=default port=default port-number=default:
 
 #Deploy to shuttle
 deploy:
-    astro build --root=frontend && cargo shuttle deploy
+    cd frontend && astro build && cd ../backend && cargo shuttle deploy && cd ..
 
 # install
 install:
