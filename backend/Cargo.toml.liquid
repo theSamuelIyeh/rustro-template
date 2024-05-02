@@ -1,0 +1,14 @@
+[package]
+name = {{project_name}}
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+actix-files = "0.6.5"
+actix-web = "4.3.1"
+askama = { git = "https://github.com/djc/askama.git", branch = "main", features = ["with-actix-web", "mime", "mime_guess"]}
+askama_actix = { git = "https://github.com/djc/askama" }
+reqwest = "0.12.4"
+shuttle-actix-web = "0.44.0"
+shuttle-runtime = "0.44.0"
+tokio = "1.26.0"

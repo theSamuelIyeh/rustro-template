@@ -1,16 +1,13 @@
-use actix_web::{get, web::ServiceConfig};
-use shuttle_actix_web::ShuttleActixWeb;
+mod router;
+mod routes;
+mod templates;
+mod utils;
 
-#[get("/")]
-async fn hello_world() -> &'static str {
-    "Hello World!"
-}
+use actix_web::web::ServiceConfig;
+use shuttle_actix_web::ShuttleActixWeb;
 
 #[shuttle_runtime::main]
 async fn main() -> ShuttleActixWeb<impl FnOnce(&mut ServiceConfig) + Send + Clone + 'static> {
-    let config = move |cfg: &mut ServiceConfig| {
-        cfg.service(hello_world);
-    };
-
+    let config = router::init_router;
     Ok(config.into())
 }
